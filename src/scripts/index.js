@@ -37,9 +37,6 @@ function callApi(endpoind, method) {
     .catch(error => {
       console.warn(error);
       throw error;
-    })
-    .finally(() => {
-      loadingElement.remove();
     });
 }
 
@@ -109,6 +106,7 @@ class FightersView extends View {
   constructor(fighters) {
     super();
     
+    this.handleClick = this.handleFighterClick.bind(this);
     this.createFighters(fighters);
   }
 
@@ -116,7 +114,7 @@ class FightersView extends View {
 
   createFighters(fighters) {
     const fighterElements = fighters.map(fighter => {
-      const fighterView = new FighterView(fighter, this.handleFighterClick);
+      const fighterView = new FighterView(fighter, this.handleClick);
       return fighterView.element;
     });
 
