@@ -52,6 +52,17 @@ function createName(name) {
   return nameElement;
 }
 
+function createImage(source) {
+  const attributes = { src: source };
+  const imgElement = createElement({
+    tagName: 'img',
+    className: 'fighter-image',
+    attributes
+  });
+
+  return imgElement;
+}
+
 const getFightersNames = (fighters) => fighters.map(it => it.name).join('\n');
 
 startApp();
