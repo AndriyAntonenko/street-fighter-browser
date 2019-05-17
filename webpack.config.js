@@ -33,5 +33,6 @@ module.exports = {
   },
   output: {
     publicPath: '/dist/'
-  }
+  },
+  devtool: 'source-map'
 }
