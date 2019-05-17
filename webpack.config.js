@@ -27,5 +27,11 @@ module.exports = {
       }
     ]
   },
-  mode: 'development'
+  mode: 'development',
+  devServer: {
+    inline: true
+  },
+  output: {
+    publicPath: '/dist/'
+  }
 }
