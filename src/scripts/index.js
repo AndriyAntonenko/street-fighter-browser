@@ -33,6 +33,18 @@ function callApi(endpoind, method) {
     });
 }
 
+function createElement({ tagName, className = '', attributes = {} }) {
+  const element = document.createElement(tagName);
+  element.classList.add(className);
+
+
+  Object
+    .keys(attributes)
+    .forEach(key => element.setAttribute(key, attributes[key]));
+  
+    return element;
+}
+
 const getFightersNames = (fighters) => fighters.map(it => it.name).join('\n');
 
 startApp();
