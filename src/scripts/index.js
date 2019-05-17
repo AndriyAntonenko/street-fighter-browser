@@ -30,9 +30,6 @@ function callApi(endpoind, method) {
     });
 }
 
-function getFightersNames(fighters) {
-  const names = fighters.map(it => it.name).join('\n');
-  return names;
-}
+const getFightersNames = (fighters) => fighters.map(it => it.name).join('\n');
 
 startApp();
