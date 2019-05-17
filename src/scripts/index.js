@@ -2,11 +2,16 @@ const API_URL = 'https://api.github.com/';
 const rootElement = document.getElementById('root');
 const loadingElement = document.getElementById('loading-overlay');
 
+const fightersDetailsMap = new Map();
+
 async function startApp() {
   try {
     const endpoint = 'repos/sahanr/street-fighter/contents/fighters.json';
     const fighters = await callApi(endpoint, 'GET');
-    rootElement.innerText = getFightersNames(fighters);
+    console.log(fighters);
+    
+    const fightersElements = createFighters(fighters);
+    rootElement.appendChild(fightersElements);
   } catch (error) {
     console.warn(error);
     rootElement.innerText = 'Failed to load data';
@@ -70,6 +75,7 @@ function createFighter(fighter) {
   const element = createElement({ tagName: 'div', className: 'fighter' });
 
   element.append(imageElement, nameElement);
+  element.addEventListener('click', event => handleFighterClick(event, fighter), false);
 
   return element;
 }
@@ -80,6 +86,17 @@ function createFighters(fighters) {
 
   element.append(...fighterElements);
   return element;
+}
+
+function handleFighterClick(event, fighter) {
+  const { _id } = fighter;
+
+  if(!fightersDetailsMap.has(_id)) {
+    // send request here
+    fightersDetailsMap.set(_id, fighter);
+  }
+
+  console.log(fightersDetailsMap.get(_id));
 }
 
 const getFightersNames = (fighters) => fighters.map(it => it.name).join('\n');
