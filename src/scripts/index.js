@@ -45,6 +45,13 @@ function createElement({ tagName, className = '', attributes = {} }) {
     return element;
 }
 
+function createName(name) {
+  const nameElement = createElement({ tagName: 'span', className: 'name' });
+  nameElement.innerText = name;
+
+  return nameElement;
+}
+
 const getFightersNames = (fighters) => fighters.map(it => it.name).join('\n');
 
 startApp();
