@@ -1,0 +1,16 @@
+{
+  "name": "street-fighter",
+  "version": "1.0.0",
+  "description": "Browser game \"Street Fighter\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://wabalabadabdab@bitbucket.org/wabalabadabdab/street-fighter.git"
+  },
+  "author": "Andrii Antonenko (andiyantonenko3.16@gmail.com)",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/wabalabadabdab/street-fighter#readme"
+}
