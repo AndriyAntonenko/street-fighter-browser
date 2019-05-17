@@ -1,9 +1,3 @@
-const API_URL = 'https://api.github.com/';
-const rootElement = document.getElementById('root');
-const loadingElement = document.getElementById('loading-overlay');
-
-const fightersDetailsMap = new Map();
-
 class App {
   constructor() {
     this.startApp();
@@ -31,6 +25,7 @@ class App {
 }
 
 function callApi(endpoind, method) {
+  const API_URL = 'https://api.github.com/';
   const url = API_URL + endpoind;
   const options = {
     method
