@@ -63,6 +63,17 @@ function createImage(source) {
   return imgElement;
 }
 
+function createFighter(fighter) {
+  const { name, source } = fighter;
+  const nameElement = createName(name);
+  const imageElement = createImage(source);
+  const element = createElement({ tagName: 'div', className: 'fighter' });
+
+  element.append(imageElement, nameElement);
+
+  return element;
+}
+
 const getFightersNames = (fighters) => fighters.map(it => it.name).join('\n');
 
 startApp();
