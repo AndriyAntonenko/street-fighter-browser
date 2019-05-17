@@ -74,6 +74,14 @@ function createFighter(fighter) {
   return element;
 }
 
+function createFighters(fighters) {
+  const fighterElements = fighters.map(fighter => createFighter(fighter));
+  const element = createElement({ tagName: 'div', className: 'fighters' });
+
+  element.append(...fighterElements);
+  return element;
+}
+
 const getFightersNames = (fighters) => fighters.map(it => it.name).join('\n');
 
 startApp();
