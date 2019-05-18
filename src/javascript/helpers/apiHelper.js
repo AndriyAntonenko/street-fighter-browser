@@ -4,7 +4,9 @@ function callApi(url, method) {
   };
 
   return fetch(url, options)
-    .then(response => response.ok ? response.json() : Promise.reject(Error('Failed to load')))
+    .then(response =>
+      response.ok ? response.json() : Promise.reject(Error("Failed to load"))
+    )
     .catch(error => {
       console.warn(error);
       throw error;

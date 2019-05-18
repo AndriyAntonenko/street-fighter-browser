@@ -4,15 +4,17 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Baloo Bhai', cursive;
 }
 
 #root {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
+    background: url('../../resources/menu-background.png') no-repeat;
 }
 
 .fighters {
@@ -28,9 +30,13 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    border: 5px solid rgba(0, 0, 0, 0);
+    color: #fcf71f;
 }
 
 .fighter:hover {
+    border: 5px solid #fcf71f;
+    background: #450000;
     box-shadow: 0 0 50px 10px rgba(0,0,0,0.06);
     cursor: pointer;
 }
@@ -56,4 +62,84 @@ body {
     justify-content: center;
     font-size: 18px;
     background: rgba(255, 255, 255, 0.7);
+}
+
+#fighter-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+}
+
+.fighter-info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+    min-width: 550px;
+    background-color: #450000;
+    border: 7px solid #e89805;
+    border-radius: 4px;
+}
+
+.fighter-info-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.fighter-info-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 60%;
+}
+
+.fighter-info-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+}
+
+.fighter-info-image img {
+    height: 90%;
+}
+
+.fighter-name {
+    color: #fcf71f;
+    font-size: 1.6em;
+}
+
+.param-label {
+    color: #fcf71f;
+}
+
+#input-health,
+#input-defense,
+#input-attack {
+    min-width: 180px;
+    border: 2px solid#e89805;
+    outline: none;
+}
+
+.btn-save {
+    width: 50%;
+    margin: 0 0 0 50%;
+    padding: 5px;
+    border: none;
+    font-family: 'Baloo Bhai', cursive;    
+    background: #e89805;
+    color: #450000;
+    cursor: pointer;
 }

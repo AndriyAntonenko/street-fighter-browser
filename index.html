@@ -4,10 +4,59 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>Street Figth</title>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
+      <div id="fighter-info">
+        <div class="fighter-info-container">
+          <div class="fighter-info-image">
+            <img src="https://media.giphy.com/media/kdHa4JvihB2gM/giphy.gif" alt="">
+          </div>
+          <div class="fighter-info-form">
+            <form>  
+              <p class="fighter-name">Ryu</p>  
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="param-label">Health: </span>
+                    </td>
+                    <td>
+                      <input id="input-health" type="number" min="1" max="100"> 
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="param-label">Defense: </span>
+                    </td>
+                    <td>
+                      <input id="input-defense" type="number" min="0" max="7">              
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="param-label">Attack: </span>
+                    </td>
+                    <td>
+                      <input id="input-attack" type="number" min="0" max="7">             
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <button class="btn-save">
+                        Save
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>        
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="loading-overlay">
       <img src="resources/logo.png"/>
