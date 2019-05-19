@@ -29,7 +29,9 @@ function fight(firstFighter, secondFighter) {
           firstFighter.getHitPower() - secondFighter.getBlockPower();
         secondFighter.health -= damage > 0 ? damage : 0;
 
-        const healthIndicator = document.getElementById(secondFighter._id);
+        const healthIndicator = document.querySelector(
+          `.second-fighter-block .health-indicator`
+        );
         changeHealthIndicator(
           healthIndicator,
           secondFighter.maxHealth,
@@ -42,7 +44,9 @@ function fight(firstFighter, secondFighter) {
           secondFighter.getHitPower() - firstFighter.getBlockPower();
         firstFighter.health -= damage > 0 ? damage : 0;
 
-        const healthIndicator = document.getElementById(firstFighter._id);
+        const healthIndicator = document.querySelector(
+          `.first-fighter-block .health-indicator`
+        );
         changeHealthIndicator(
           healthIndicator,
           firstFighter.maxHealth,
