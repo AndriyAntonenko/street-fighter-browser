@@ -38,6 +38,7 @@
     ],
     "import/prefer-default-export": false,
     "import/no-named-as-default": false,
-    "import/no-named-as-default-member": false
+    "import/no-named-as-default-member": false,
+    "no-console": ["error", { "allow": ["warn", "error"] }] 
   }
 }
