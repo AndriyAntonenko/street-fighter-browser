@@ -34,6 +34,7 @@ class FightersView extends View {
     this.fightersDetailsMap.delete(fighterId);
 
     this.fightersDetailsMap.set(fighterId, oldFighterData);
+    console.log(this.fightersDetailsMap);
   }
 
   async handleFighterClick(event, fighter) {

@@ -9,14 +9,20 @@ const fighterImage = document.querySelector(".fighter-info-image img");
 const btnSave = document.getElementById("save");
 const chooseBtn = document.getElementById("choose-fighter");
 
-function btnClickHandler(e) {
-  e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+function newFighterParams() {
   const fighter = {
     health: healthInput.value,
     defense: defenseInput.value,
     attack: attackInput.value
   };
 
+  return fighter;
+}
+
+function btnClickHandler(e) {
+  e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+
+  const fighter = newFighterParams();
   const _id = e.target.dataset.id;
 
   window.ee.emit("edit-fighter", _id, fighter);
@@ -36,7 +42,7 @@ function chooseBtnHandler(fighter) {
       const fighterElement = new FighterView(fighter);
       secondFighterElement.appendChild(fighterElement.element);
     }
-    document.getElementById("fighter-info").style.visibility = "hidden";
+    btnClickHandler(e);
   };
 }
 
