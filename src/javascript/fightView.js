@@ -15,6 +15,7 @@ class FightView extends View {
 
     fightView.appendChild(this.createFirstFighter());
     fightView.appendChild(this.createSecondFighter());
+    this.panchesSound();
 
     return fightView;
   }
@@ -73,6 +74,28 @@ class FightView extends View {
     indicator.appendChild(healthes);
     indicator.appendChild(healthesLost);
     return indicator;
+  }
+
+  panchesSound() {
+    const audioRoutes = [
+      "./resources/audio/panches/2AH.wav",
+      "./resources/audio/panches/2BH.wav",
+      "./resources/audio/panches/2CH.wav",
+      "./resources/audio/panches/2DH.wav",
+      "./resources/audio/panches/2EH.wav"
+    ];
+
+    audioRoutes
+      .map(route => {
+        return this.createElement({
+          tagName: "audio",
+          className: "panch",
+          attributes: { src: route, hidden: true }
+        });
+      })
+      .forEach(audio => {
+        document.getElementById("root").appendChild(audio);
+      });
   }
 }
 

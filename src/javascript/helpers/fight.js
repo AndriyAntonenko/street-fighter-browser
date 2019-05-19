@@ -21,13 +21,17 @@ function showWinnerWindow(winner) {
 }
 
 function fight(firstFighter, secondFighter) {
+  document.getElementById("main-theme").pause();
   document.addEventListener(
     "keydown",
     e => {
+      const panchesSounds = document.querySelectorAll(".panch");
+      const randomNumber = Math.ceil(Math.random() * 4);
       if (e.keyCode === 70) {
         const damage =
           firstFighter.getHitPower() - secondFighter.getBlockPower();
         secondFighter.health -= damage > 0 ? damage : 0;
+        panchesSounds[randomNumber].play();
 
         const healthIndicator = document.querySelector(
           `.second-fighter-block .health-indicator`
@@ -43,6 +47,7 @@ function fight(firstFighter, secondFighter) {
         const damage =
           secondFighter.getHitPower() - firstFighter.getBlockPower();
         firstFighter.health -= damage > 0 ? damage : 0;
+        panchesSounds[randomNumber].play();
 
         const healthIndicator = document.querySelector(
           `.first-fighter-block .health-indicator`
