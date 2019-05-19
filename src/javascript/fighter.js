@@ -1,6 +1,8 @@
 class Fighter {
-  constructor({ name, health, attack, defense, source }) {
+  constructor({ _id, name, health, attack, defense, source }) {
+    this._id = _id;
     this.name = name;
+    this.maxHealth = health;
     this.health = health;
     this.attack = attack;
     this.defense = defense;
@@ -9,12 +11,14 @@ class Fighter {
 
   getHitPower() {
     const criticalHitChance = Math.random() + 1;
-    return this.attack * criticalHitChance();
+
+    return Math.ceil(this.attack * criticalHitChance);
   }
 
   getBlockPower() {
     const dodgeChanse = Math.random() + 1;
-    return this.defense * dodgeChanse;
+
+    return Math.ceil(this.defense * dodgeChanse);
   }
 }
 

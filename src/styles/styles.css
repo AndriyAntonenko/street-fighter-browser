@@ -66,7 +66,7 @@ td {
     background: rgba(255, 255, 255, 0.7);
 }
 
-#fighter-info {
+.fighter-info {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,6 +87,19 @@ td {
     height: 50%;
     width: 50%;
     min-width: 550px;
+    background-color: #450000;
+    border: 7px solid #e89805;
+    border-radius: 4px;
+}
+
+.winner-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 40%;
+    min-width: 450px;
     background-color: #450000;
     border: 7px solid #e89805;
     border-radius: 4px;
@@ -156,6 +169,17 @@ td {
     cursor: pointer;
 }
 
+.menu-return {
+    width: 20%;
+    margin: 10px 0;
+    padding: 5px;
+    border: none;
+    font-family: 'Baloo Bhai', cursive;    
+    background: #e89805;
+    color: #450000;
+    cursor: pointer;
+}
+
 .fight-menu {
     display: flex;
     flex-direction: column;
@@ -185,7 +209,8 @@ td {
     border: none;
 }
 
-#second-fighter .fighter img {
+#second-fighter .fighter-image,
+.second-fighter-block img {
     transform: scale(-1, 1);
 }
 
@@ -214,4 +239,54 @@ td {
 
 #start img {
     height: 90px;
+}
+
+.fight {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.first-fighter-block,
+.second-fighter-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.fight-fighter-img {
+    height: 360px;
+    margin-bottom: 100px; 
+}
+
+.health-indicator {
+    position: absolute;
+    top: 40px;
+    display: flex;
+    flex-direction: row;
+    align-self: fl;    
+    width: 80%;
+    height: 40px;
+    border: 3px solid #e89805;
+}
+
+.second-fighter-block .health-indicator {
+    flex-direction: row-reverse;
+} 
+
+.fighter-health {
+    width: 100%;
+    height: 100%;
+    background: #B80000;
+}
+
+.fighter-health-lost {
+    width: 0;
+    height: 100%;
+    background:whitesmoke;
 }

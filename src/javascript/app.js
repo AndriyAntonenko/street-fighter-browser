@@ -2,8 +2,9 @@
 import { EventEmitter } from "events";
 import FightersView from "./fightersView";
 import { fighterService } from "./services/fightersService";
-import { Fighter } from "./fighter";
+import { fightScene } from "./helpers/createFightView";
 import { fight } from "./helpers/fight";
+import { Fighter } from "./fighter";
 
 window.ee = new EventEmitter();
 
@@ -34,7 +35,7 @@ class App {
       });
       window.ee.on("choose-fighter", id => {
         if (this.oponents.length < 2) {
-          this.oponents.push(new Fighter(fightersView.getFighterDataById(id)));
+          this.oponents.push(fightersView.getFighterDataById(id));
         }
       });
 
@@ -43,8 +44,10 @@ class App {
         () => {
           if (this.oponents.length === 2) {
             App.loadingElement.style.visibility = "visible";
-            fight();
+            fightScene(App.rootElement, this.oponents);
             App.loadingElement.style.visibility = "hidden";
+
+            fight(new Fighter(this.oponents[0]), new Fighter(this.oponents[1]));
           }
         },
         false
