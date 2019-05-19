@@ -8,25 +8,25 @@ const nameField = document.querySelector(".fighter-name");
 const fighterImage = document.querySelector(".fighter-info-image img");
 const btnSave = document.getElementById("save");
 const chooseBtn = document.getElementById("choose-fighter");
+const closeBtn = document.getElementById("close-window");
 
-function newFighterParams() {
+function editFighter(id) {
   const fighter = {
     health: healthInput.value,
     defense: defenseInput.value,
     attack: attackInput.value
   };
 
-  return fighter;
+  window.ee.emit("edit-fighter", id, fighter);
 }
 
-function btnClickHandler(e) {
-  e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+function btnClickHandler(fighter) {
+  return e => {
+    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
-  const fighter = newFighterParams();
-  const _id = e.target.dataset.id;
-
-  window.ee.emit("edit-fighter", _id, fighter);
-  document.getElementById("fighter-info").style.visibility = "hidden";
+    editFighter(fighter._id);
+    document.getElementById("fighter-info").style.visibility = "hidden";
+  };
 }
 
 function chooseBtnHandler(fighter) {
@@ -42,8 +42,15 @@ function chooseBtnHandler(fighter) {
       const fighterElement = new FighterView(fighter);
       secondFighterElement.appendChild(fighterElement.element);
     }
-    btnClickHandler(e);
+
+    editFighter(fighter._id);
+    window.ee.emit("choose-fighter", fighter._id);
+    document.getElementById("fighter-info").style.visibility = "hidden";
   };
+}
+
+function closeBtnHandler() {
+  document.getElementById("fighter-info").style.visibility = "hidden";
 }
 
 function showFighterInfo(fighter) {
@@ -53,12 +60,12 @@ function showFighterInfo(fighter) {
   nameField.innerText = fighter.name;
 
   fighterImage.setAttribute("src", fighter.source);
-  btnSave.setAttribute("data-id", fighter._id);
 
-  btnSave.addEventListener("click", btnClickHandler);
   document.getElementById("fighter-info").style.visibility = "visible";
+
+  btnSave.onclick = btnClickHandler(fighter);
   chooseBtn.onclick = chooseBtnHandler(fighter);
-  chooseBtn.setAttribute("data-id", fighter._id);
+  closeBtn.onclick = closeBtnHandler;
 }
 
 export { showFighterInfo };

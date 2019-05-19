@@ -27,6 +27,7 @@ class FightersView extends View {
 
   editFighter(fighterId, fighterInfo) {
     const oldFighterData = this.fightersDetailsMap.get(String(fighterId));
+
     oldFighterData.health = fighterInfo.health;
     oldFighterData.defense = fighterInfo.defense;
     oldFighterData.attack = fighterInfo.attack;
@@ -34,7 +35,6 @@ class FightersView extends View {
     this.fightersDetailsMap.delete(fighterId);
 
     this.fightersDetailsMap.set(fighterId, oldFighterData);
-    console.log(this.fightersDetailsMap);
   }
 
   async handleFighterClick(event, fighter) {
@@ -44,6 +44,10 @@ class FightersView extends View {
     }
 
     showFighterInfo(this.fightersDetailsMap.get(fighter._id));
+  }
+
+  getFighterDataById(id) {
+    return this.fightersDetailsMap.get(id);
   }
 }
 

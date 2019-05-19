@@ -8,8 +8,6 @@ class FighterView extends View {
   }
 
   createFighter(fighter, handleClick) {
-    console.log(fighter);
-
     const { name, source } = fighter;
     const nameElement = this.createName(name);
     const imageElement = this.createImage(source);

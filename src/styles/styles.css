@@ -80,6 +80,7 @@ td {
 }
 
 .fighter-info-container {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -89,6 +90,15 @@ td {
     background-color: #450000;
     border: 7px solid #e89805;
     border-radius: 4px;
+}
+
+#close-window {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 1.5em;
+    color: #e89805;
+    cursor: pointer;
 }
 
 .fighter-info-form {
@@ -169,6 +179,7 @@ td {
 
 #first-fighter .fighter,
 #second-fighter .fighter {
+    padding: 0;
     height: auto;
     width: auto;
     border: none;

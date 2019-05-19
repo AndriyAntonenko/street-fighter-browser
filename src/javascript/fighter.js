@@ -1,9 +1,10 @@
 class Fighter {
-  constructor(name, health, attack, defense) {
+  constructor({ name, health, attack, defense, source }) {
     this.name = name;
     this.health = health;
     this.attack = attack;
     this.defense = defense;
+    this.source = source;
   }
 
   getHitPower() {
