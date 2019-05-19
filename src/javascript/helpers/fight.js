@@ -1,3 +1,4 @@
+import View from "../view";
 import { WinnerWindow } from "../winnerWindow";
 
 function changeHealthIndicator(indicator, maxHealth, health) {
@@ -18,6 +19,27 @@ function showWinnerWindow(winner) {
   const winnerWindow = new WinnerWindow(winner).create();
   winnerWindow.style.visibility = "visible";
   document.getElementById("root").appendChild(winnerWindow);
+}
+
+function createPanchImage(className) {
+  const root = document.getElementById("root");
+  const oldPanchImage = document.getElementById("panch-efect");
+  if (oldPanchImage) {
+    root.removeChild(oldPanchImage);
+  }
+  const panchImage = new View().createElement({
+    tagName: "img",
+    className,
+    attributes: { id: "panch-efect", src: "./resources/panch.png" }
+  });
+
+  root.appendChild(panchImage);
+  setTimeout(() => {
+    const image = document.getElementById("panch-efect");
+    if (image) {
+      root.removeChild(image);
+    }
+  }, 500);
 }
 
 function fight(firstFighter, secondFighter) {
@@ -41,6 +63,7 @@ function fight(firstFighter, secondFighter) {
           secondFighter.maxHealth,
           secondFighter.health
         );
+        createPanchImage("panch-first-efect");
       }
 
       if (e.keyCode === 74) {
@@ -57,6 +80,7 @@ function fight(firstFighter, secondFighter) {
           firstFighter.maxHealth,
           firstFighter.health
         );
+        createPanchImage("panch-second-efect");
       }
 
       const winner = {};

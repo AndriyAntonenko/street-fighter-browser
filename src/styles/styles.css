@@ -290,3 +290,17 @@ td {
     height: 100%;
     background:whitesmoke;
 }
+
+.panch-first-efect {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    width: 20%;
+}
+
+.panch-second-efect {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 20%;
+}
