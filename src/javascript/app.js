@@ -19,6 +19,8 @@ class App {
 
   static loadingElement = document.getElementById("loading-overlay");
 
+  static mainTheme = document.getElementById("main-theme");
+
   async startApp() {
     try {
       App.loadingElement.style.visibility = "visible";
@@ -29,6 +31,7 @@ class App {
       const fightersElement = fightersView.element;
 
       App.rootElement.appendChild(fightersElement);
+      App.mainTheme.play();
 
       window.ee.on("edit-fighter", (_id, fighter) => {
         fightersView.editFighter(_id, fighter);
