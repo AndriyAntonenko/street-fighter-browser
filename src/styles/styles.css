@@ -140,7 +140,8 @@ td {
     height: 90%;
 }
 
-.fighter-name {
+.fighter-name,
+.help-info {
     color: #fcf71f;
     font-size: 1.6em;
 }

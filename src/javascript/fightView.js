@@ -5,6 +5,7 @@ class FightView extends View {
   constructor(fighters) {
     super();
     this.fighters = fighters;
+    this.helpInfo = this.createHelpInfo();
   }
 
   createFightView() {
@@ -31,7 +32,9 @@ class FightView extends View {
       this.fighters[0].source
     );
     firstFighterImage.classList.add("fight-fighter-img");
+
     firstFighterBlock.appendChild(healthIndicator);
+    firstFighterBlock.appendChild(this.helpInfo.helpFirstFighter);
     firstFighterBlock.appendChild(firstFighterImage);
 
     return firstFighterBlock;
@@ -48,7 +51,9 @@ class FightView extends View {
       this.fighters[1].source
     );
     secondFighterImage.classList.add("fight-fighter-img");
+
     secondFighterBlock.appendChild(healthIndicator);
+    secondFighterBlock.appendChild(this.helpInfo.helpSecondFighter);
     secondFighterBlock.appendChild(secondFighterImage);
 
     return secondFighterBlock;
@@ -74,6 +79,27 @@ class FightView extends View {
     indicator.appendChild(healthes);
     indicator.appendChild(healthesLost);
     return indicator;
+  }
+
+  createHelpInfo() {
+    const helpFirstFighter = this.createElement({
+      tagName: "p",
+      className: "help-info"
+    });
+    helpFirstFighter.innerText = "Press 'F' to hit";
+
+    const helpSecondFighter = this.createElement({
+      tagName: "p",
+      className: "help-info"
+    });
+    helpSecondFighter.innerText = "Press 'J' to hit";
+
+    setTimeout(() => {
+      helpFirstFighter.parentNode.removeChild(helpFirstFighter);
+      helpSecondFighter.parentNode.removeChild(helpSecondFighter);
+    }, 5000);
+
+    return { helpFirstFighter, helpSecondFighter };
   }
 
   panchesSound() {
