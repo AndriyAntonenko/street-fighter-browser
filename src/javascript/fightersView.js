@@ -1,7 +1,7 @@
 import View from "./view";
 import FighterView from "./fighterView";
 import { fighterService } from "./services/fightersService";
-import { showFighterInfo } from "./helpers/showFighterInfo";
+import { FighterInfoWindow } from "./fighterInfoView";
 
 class FightersView extends View {
   constructor(fighters) {
@@ -43,7 +43,11 @@ class FightersView extends View {
       this.fightersDetailsMap.set(fighterDetails._id, fighterDetails);
     }
 
-    showFighterInfo(this.fightersDetailsMap.get(fighter._id));
+    document
+      .getElementById("root")
+      .appendChild(
+        new FighterInfoWindow(this.getFighterDataById(fighter._id)).create()
+      );
   }
 
   getFighterDataById(id) {

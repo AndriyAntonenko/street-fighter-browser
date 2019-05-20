@@ -8,65 +8,8 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <audio id="main-theme" autoplay src="./resources/audio/menu-audio.mp3" hidden loop></audio>
+    <audio id="main-theme" src="./resources/audio/menu-audio.mp3" hidden loop></audio>
     <div id="root">
-      <div id="fighter-info" class="fighter-info">
-        <div class="fighter-info-container">
-          <span id="close-window">&#10006;</span>
-          <div class="fighter-info-image">
-            <img src="https://media.giphy.com/media/kdHa4JvihB2gM/giphy.gif" alt="">
-          </div>
-          <div class="fighter-info-form">
-            <form>  
-              <p class="fighter-name">Ryu</p>  
-              <table>
-                <tbody>
-                  <tr>
-                    <td>
-                      <span class="param-label">Health: </span>
-                    </td>
-                    <td>
-                      <input id="input-health" type="number" min="1" max="100"> 
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span class="param-label">Defense: </span>
-                    </td>
-                    <td>
-                      <input id="input-defense" type="number" min="0" max="7">              
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span class="param-label">Attack: </span>
-                    </td>
-                    <td>
-                      <input id="input-attack" type="number" min="0" max="7">             
-                    </td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>
-                      <button id="save" class="btn">
-                        Save
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>
-                      <button id="choose-fighter" class="btn">
-                        Choose
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>        
-            </form>
-          </div>
-        </div>
-      </div>
       <div class="fight-menu">
         <div id="fight-info">
           <div id="first-fighter"></div>
